@@ -25,3 +25,8 @@ def get_train_data(date: str, train_years: int) -> pd.DataFrame:
     tickers = get_tickers()
 
     return yf.download(tickers, start_date, end_date)['Adj Close']
+
+
+if __name__ == "__main__":
+    data = get_train_data("2021-07-12", 10)
+    data.to_csv("train.csv")
